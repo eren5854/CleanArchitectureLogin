@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitectureLogin.Infrastructure", "CleanArchitectureLogin.Infrastructure\CleanArchitectureLogin.Infrastructure.csproj", "{EB00B0A4-062A-47CB-9204-0BD404B794BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureLogin.WebAPI", "CleanArchitectureLogin.WebAPI\CleanArchitectureLogin.WebAPI.csproj", "{A757C402-6907-48F4-9FB5-9E658F307D34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitectureLogin.WebAPI", "CleanArchitectureLogin.WebAPI\CleanArchitectureLogin.WebAPI.csproj", "{A757C402-6907-48F4-9FB5-9E658F307D34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureLogin.Domain", "CleanArchitectureLogin.Domain\CleanArchitectureLogin.Domain.csproj", "{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A757C402-6907-48F4-9FB5-9E658F307D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A757C402-6907-48F4-9FB5-9E658F307D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A757C402-6907-48F4-9FB5-9E658F307D34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
