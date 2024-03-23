@@ -1,0 +1,12 @@
+﻿using CleanArchitectureLogin.Domain.Enums;
+using Microsoft.AspNetCore.Identity;
+
+namespace CleanArchitectureLogin.Domain.Entities;
+public sealed class AppUser : IdentityUser<Guid>
+{
+    public string FirstName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
+    public string FullName => string.Join(" ", FullName, LastName);
+    public UserRole UserRole { get; set; }
+
+}
