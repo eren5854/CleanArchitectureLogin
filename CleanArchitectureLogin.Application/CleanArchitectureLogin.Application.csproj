@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="TS.Result" Version="8.0.5" />
@@ -14,10 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CleanArchitectureLogin.Domain\CleanArchitectureLogin.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Auth\Login\" />
   </ItemGroup>
 
 </Project>
