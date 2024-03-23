@@ -16,8 +16,8 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, bool>
 
 	public async Task<bool> Handle(LoginCommand request, CancellationToken cancellationToken)
 	{
-		AppUser appUser = await _userManager.Users.SingleOrDefaultAsync(p => p.UserName == request.UserNameOrEmail ||
-			p.Email == request.UserNameOrEmail, cancellationToken);
+		AppUser? appUser = await _userManager.Users.SingleOrDefaultAsync(p => p.UserName == request.UserNameOrEmail.ToUpper() ||
+			p.Email == request.UserNameOrEmail.ToUpper(), cancellationToken);
 
 		if (appUser == null)
 		{

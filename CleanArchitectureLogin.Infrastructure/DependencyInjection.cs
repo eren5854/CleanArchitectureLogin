@@ -2,6 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Data;
+using System;
+using CleanArchitectureLogin.Domain.Entities;
 
 namespace CleanArchitectureLogin.Infrastructure;
 public static class DependencyInjection
@@ -14,7 +17,16 @@ public static class DependencyInjection
         {
             options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
         });
+		services.AddIdentity<AppUser, AppRole>(options =>
+		{
+			options.Password.RequireNonAlphanumeric = false;
+			options.Password.RequireDigit = false;
+			options.Password.RequiredLength = 1;
+			options.Password.RequireUppercase = false;
+			options.Password.RequireLowercase = false;
 
-        return services;
+		}).AddEntityFrameworkStores<ApplicationDbContext>();
+
+		return services;
     }
 }
