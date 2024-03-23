@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitectureLogin.Infrastructure.Context;
-internal sealed class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
+internal sealed class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
 {
     public ApplicationDbContext(DbContextOptions options) : base(options)
     {
