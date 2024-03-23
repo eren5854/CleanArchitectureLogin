@@ -32,10 +32,8 @@ public sealed class LoginCommandValidator : AbstractValidator<LoginCommand>
 								+ loginCommandValidator
 								+ registerCommandValidator
 								+ createRoleCommand
-									  -----CreateRoleCommandHandler => Hata var
 								+ createRoleCommandHandler
 								+ getRolesQuery
-									  -----GetRolesQueryHandler => Hata var
                                 + appRole
                                 + apiController
                                 + AuthController

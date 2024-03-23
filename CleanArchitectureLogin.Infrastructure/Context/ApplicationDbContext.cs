@@ -17,5 +17,6 @@ internal sealed class ApplicationDbContext : IdentityDbContext<AppUser, Identity
         builder.Ignore<IdentityUserToken<Guid>>();
         builder.Ignore<IdentityUserLogin<Guid>>();
         builder.Ignore<IdentityUserRole<Guid>>();
+        builder.Ignore<IdentityRole<Guid>>();
     }
 }
