@@ -12,7 +12,7 @@ internal sealed class ApplicationDbContext : IdentityDbContext<AppUser, AppRole,
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Ignore<IdentityRoleClaim<Guid>>();
+        //builder.Ignore<IdentityRoleClaim<Guid>>();
         builder.Ignore<IdentityUserClaim<Guid>>();
         builder.Ignore<IdentityUserToken<Guid>>();
         builder.Ignore<IdentityUserLogin<Guid>>();
