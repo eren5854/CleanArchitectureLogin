@@ -5,5 +5,6 @@
         User,
         Seller,
         Admin,
+        Eren
     }
 }
