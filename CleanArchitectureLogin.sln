@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitectureLogin.WebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureLogin.Domain", "CleanArchitectureLogin.Domain\CleanArchitectureLogin.Domain.csproj", "{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureLogin.Application", "CleanArchitectureLogin.Application\CleanArchitectureLogin.Application.csproj", "{D7639B7C-0431-4E7E-86A6-6B1ADD748EAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B420AB0-8DCA-4E25-A5F8-E0C1BDE2DCA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7639B7C-0431-4E7E-86A6-6B1ADD748EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7639B7C-0431-4E7E-86A6-6B1ADD748EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7639B7C-0431-4E7E-86A6-6B1ADD748EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7639B7C-0431-4E7E-86A6-6B1ADD748EAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
