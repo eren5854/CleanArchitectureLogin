@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CleanArchitectureLogin.Domain.Entities;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanArchitectureLogin.Application;
 public static class DependencyInjection
@@ -7,7 +8,9 @@ public static class DependencyInjection
     {
         services.AddMediatR(configuration =>
         {
-            configuration.RegisterServicesFromAssemblies(typeof(DependencyInjection).Assembly);
+            configuration.RegisterServicesFromAssemblies(typeof(DependencyInjection).Assembly,
+                typeof(AppUser).Assembly);
+
         });
         return services;
     }

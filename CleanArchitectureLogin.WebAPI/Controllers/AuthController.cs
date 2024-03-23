@@ -22,7 +22,7 @@ public class AuthController : ApiController
 	public async Task<IActionResult> Register(RegisterCommand request, CancellationToken cancellationToken)
 	{
 		await _mediator.Send(request, cancellationToken);
-		return NoContent();
+		return Ok("Kayıt Oluşturuldu!");
 	}
 
 	[HttpPost("login")]
