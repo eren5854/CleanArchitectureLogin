@@ -16,8 +16,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CleanArchitectureLogin.Domain\CleanArchitectureLogin.Domain.csproj" />
-  </ItemGroup>
-
 </Project>
