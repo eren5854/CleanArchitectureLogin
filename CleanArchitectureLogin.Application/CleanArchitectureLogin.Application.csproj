@@ -16,4 +16,8 @@
     <ProjectReference Include="..\CleanArchitectureLogin.Domain\CleanArchitectureLogin.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Auth\Login\" />
+  </ItemGroup>
+
 </Project>
