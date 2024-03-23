@@ -4,7 +4,6 @@
     {
         User,
         Seller,
-        Admin,
-        Eren
+        Admin
     }
 }
