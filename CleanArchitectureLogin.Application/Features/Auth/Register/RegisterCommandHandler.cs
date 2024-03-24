@@ -1,5 +1,4 @@
 ﻿using CleanArchitectureLogin.Domain.Entities;
-using CleanArchitectureLogin.Domain.Events;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +17,22 @@ internal sealed class RegisterCommandHandler(
             {
                 return "Email already has taken";
             }
+             
         }
+
+
+        var userName = request.UserName;
+        UserNameValidator userNameValidator = new UserNameValidator();
+
+		bool isUserNameValid = userNameValidator.IsUserNameValid(request.UserName);
+
+        if (!isUserNameValid)
+        {
+            throw new Exception("Geçerli bir Kullanıcı adı giriniz!");
+        }
+
+
+
         AppUser user = new()
         {
             FirstName = request.FirstName,
@@ -36,7 +50,6 @@ internal sealed class RegisterCommandHandler(
             return errorMessages;
         }
 
-        await mediator.Publish(new AuthDomainEvent(user));
 
         return "User created successfully";
     }
