@@ -36,7 +36,7 @@ public class AuthController : ApiController
 		}
 		else
 		{
-			return Ok("Kullanıcı adı veya şifre yanlış"); // değişebilirrr
+			return Ok("Kullanıcı adı veya şifre yanlış");
 		}
 	}
 }
