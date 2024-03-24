@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanArchitectureLogin.Application.Features.Auth.Register;
 public sealed class RegisterCommandValidator : AbstractValidator<RegisterCommand>
@@ -31,4 +26,5 @@ public sealed class RegisterCommandValidator : AbstractValidator<RegisterCommand
 		RuleFor(p => p.Password).Matches("[0-9]").WithMessage("Şife en az 1 adet rakam içermelidir!");
 		RuleFor(p => p.Password).Matches("[^a-zA-Z0-9]").WithMessage("Şife en az 1 adet özel karakter içermelidir!");
 	}
+	    
 }
