@@ -16,16 +16,16 @@ public static class DependencyInjection
         {
             options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
         });
-		services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
-		{
-			options.Password.RequireNonAlphanumeric = false;
-			options.Password.RequireDigit = false;
-			options.Password.RequiredLength = 1;
-			options.Password.RequireUppercase = false;
-			options.Password.RequireLowercase = false;
+        services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
+        {
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireDigit = false;
+            options.Password.RequiredLength = 1;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireLowercase = false;
 
-		}).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+        }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
-		return services;
+        return services;
     }
 }
