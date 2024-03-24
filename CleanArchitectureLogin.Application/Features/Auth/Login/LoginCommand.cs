@@ -3,7 +3,7 @@
 namespace CleanArchitectureLogin.Application.Features.Auth.Login;
 public sealed record LoginCommand(
 	string UserNameOrEmail,
-	string Password) : IRequest<bool>;
+	string Password) : IRequest<string>;
 
 
 
