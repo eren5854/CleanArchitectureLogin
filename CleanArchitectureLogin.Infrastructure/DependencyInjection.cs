@@ -1,10 +1,9 @@
-﻿using CleanArchitectureLogin.Infrastructure.Context;
+﻿using CleanArchitectureLogin.Domain.Entities;
+using CleanArchitectureLogin.Infrastructure.Context;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Data;
-using System;
-using CleanArchitectureLogin.Domain.Entities;
 
 namespace CleanArchitectureLogin.Infrastructure;
 public static class DependencyInjection
@@ -17,7 +16,7 @@ public static class DependencyInjection
         {
             options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
         });
-		services.AddIdentity<AppUser, AppRole>(options =>
+		services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
 		{
 			options.Password.RequireNonAlphanumeric = false;
 			options.Password.RequireDigit = false;
@@ -25,7 +24,7 @@ public static class DependencyInjection
 			options.Password.RequireUppercase = false;
 			options.Password.RequireLowercase = false;
 
-		}).AddEntityFrameworkStores<ApplicationDbContext>();
+		}).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
 		return services;
     }
