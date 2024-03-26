@@ -2,36 +2,34 @@
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace CleanArchitectureLogin.Application.Features.Auth.Register;
 internal sealed class RegisterCommandHandler(
-    UserManager<AppUser> userManager,
-    IMediator mediator) : IRequestHandler<RegisterCommand, string>
+    UserManager<AppUser> userManager) : IRequestHandler<RegisterCommand, string>
 {
     public async Task<string> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
-        if(request.Email is not null)
+        if (request.Email is not null)
         {
             bool isEmailExists = await userManager.Users.AnyAsync(p => p.Email == request.Email);
-            if(isEmailExists)
+            if (isEmailExists)
             {
-                return "Email already has taken";
+                throw new ArgumentException("Bu email kullanılıyor.");
             }
-             
+
         }
 
-
-        var userName = request.UserName;
-        UserNameValidator userNameValidator = new UserNameValidator();
-
-		bool isUserNameValid = userNameValidator.IsUserNameValid(request.UserName);
-
-        if (!isUserNameValid)
+        if (request.UserName is not null)
         {
-            throw new Exception("Geçerli bir Kullanıcı adı giriniz!");
+            Regex userNameRegex = new Regex(@"^(?!.*\s)[a-zA-Z0-9_-]{3,50}$");
+            bool isUserNameValid = userNameRegex.IsMatch(request.UserName);
+            if (!isUserNameValid)
+            {
+                throw new ArgumentException("Geçerli bir kullanıcı adı giriniz!");
+            }
+
         }
-
-
 
         AppUser user = new()
         {
@@ -43,13 +41,12 @@ internal sealed class RegisterCommandHandler(
 
         IdentityResult result = await userManager.CreateAsync(user, request.Password);
 
-        if(!result.Succeeded)
+        if (!result.Succeeded)
         {
             List<string> errors = result.Errors.Select(s => s.Description).ToList();
             string errorMessages = string.Join(", ", errors);
             return errorMessages;
         }
-
 
         return "User created successfully";
     }

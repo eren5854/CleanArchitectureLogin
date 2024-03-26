@@ -2,41 +2,31 @@
 using CleanArchitectureLogin.Application.Features.Auth.Register;
 using CleanArchitectureLogin.WebAPI.Controllers.Abstractions;
 using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitectureLogin.WebAPI.Controllers;
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class AuthController : ApiController
 {
-	private readonly IMediator _mediator;
+    private readonly IMediator _mediator;
 
-	public AuthController(IMediator mediator) : base(mediator)
-	{
-		_mediator = mediator;
-	}
+    public AuthController(IMediator mediator) : base(mediator)
+    {
+        _mediator = mediator;
+    }
 
-	[HttpPost("register")]
-	public async Task<IActionResult> Register(RegisterCommand request, CancellationToken cancellationToken)
-	{
-		await _mediator.Send(request, cancellationToken);
-		return Ok("Kayıt Oluşturuldu!");
-	}
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterCommand request, CancellationToken cancellationToken)
+    {
+        var response = await _mediator.Send(request, cancellationToken);
+        return Ok(response);
+    }
 
-	[HttpPost("login")]
-	public async Task<IActionResult> Login(LoginCommand request, CancellationToken cancellationToken)
-	{
-		bool loginSuccessful = await _mediator.Send(request, cancellationToken);
-
-		if (loginSuccessful)
-		{
-			return Ok("Giriş başarılı");
-		}
-		else
-		{
-			return Ok("Kullanıcı adı veya şifre yanlış");
-		}
-	}
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginCommand request, CancellationToken cancellationToken)
+    {
+        var response = await _mediator.Send(request, cancellationToken);
+        return Ok(response);
+    }
 }
